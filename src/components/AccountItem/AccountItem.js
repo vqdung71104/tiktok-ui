@@ -9,6 +9,9 @@ import Image from '~/components/Image';
 const cx = classNames.bind(styles);
 
 function AccountItem({ data }) {
+    if (!data) {
+        return null; // Return nothing or a fallback UI
+    }
     return (
         <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
             <Image className={cx('avatar')} src={data.avatar} alt={data.full_name} />
@@ -23,7 +26,7 @@ function AccountItem({ data }) {
     );
 }
 
-AccountItem.proptTypes = {
+AccountItem.propTypes = {
     data: PropTypes.object,
 };
 

@@ -24,7 +24,7 @@ function Button({
 }) {
     let Comp = 'button';
     const props = {
-        onclick,
+        onClick,
         ...passProps,
     };
 
@@ -72,11 +72,11 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     small: PropTypes.bool,
     large: PropTypes.bool,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string,
     leftIcon: PropTypes.node,
     rightIcon: PropTypes.node,
-    onClick: PropTypes.node,
+    onClick: PropTypes.func,
 };
 
 export default Button;

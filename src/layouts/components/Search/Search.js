@@ -9,6 +9,7 @@ import styles from './Search.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import * as searchServices from '~/services/searchService';
 import { SearchIcon } from '~/components/Icon';
+import Tippy from '@tippyjs/react/headless';
 
 const cx = classNames.bind(styles);
 
@@ -33,7 +34,7 @@ function Search() {
 
             const result = await searchServices.search(debouncedValue);
 
-            setSearchResult(result);
+            setSearchResult(result || []);
             setLoading(false);
         };
 
@@ -92,9 +93,11 @@ function Search() {
                     )}
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                        <SearchIcon />
-                    </button>
+                    <Tippy content="Tìm kiếm">
+                        <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
+                            <SearchIcon />
+                        </button>
+                    </Tippy>
                 </div>
             </HeadlessTippy>
         </div>
