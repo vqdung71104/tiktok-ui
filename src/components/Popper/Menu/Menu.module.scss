@@ -1,7 +1,7 @@
 // Menu wrapper
 .menu-list {
     width: 224px;
-    display: flex;
+
 
     .menu-item {
         margin-left: 0;
@@ -10,22 +10,24 @@
 
 .menu-popper {
     padding-bottom: 8px;
-    display: flex;
+
 }
 
 .menu-body {
     overflow-y: auto;
-    display: flex;
+
 }
 
 // Menu items
 .menu-item {
+
     width: 100%;
+
     justify-content: flex-start;
     border-radius: 0;
     padding: 11px 16px;
     line-height: 1.8rem;
-    display: flex;
+
     font-weight: 600;
 
     &.separate {

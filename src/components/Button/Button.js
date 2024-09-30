@@ -24,9 +24,10 @@ function Button({
 }) {
     let Comp = 'button';
     const props = {
-        onclick,
+        onClick,
         ...passProps,
     };
+
 
     if (disabled) {
         Object.keys(props).forEach((key) => {
@@ -43,6 +44,7 @@ function Button({
         props.href = href;
         Comp = 'a';
     }
+
     const classes = cx('wrapper', {
         [className]: className,
         primary,
@@ -53,8 +55,9 @@ function Button({
         small,
         large,
     });
+  
     return (
-        <Comp classNames={classes} {...props}>
+        <Comp className={classes} {...props}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             <span className={cx('title')}>{children}</span>
             {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
@@ -72,11 +75,13 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     small: PropTypes.bool,
     large: PropTypes.bool,
+
     children: PropTypes.node.isRequired,
+
     className: PropTypes.string,
     leftIcon: PropTypes.node,
     rightIcon: PropTypes.node,
-    onClick: PropTypes.node,
+    onClick: PropTypes.func,
 };
 
 export default Button;

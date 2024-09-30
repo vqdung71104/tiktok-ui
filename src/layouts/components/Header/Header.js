@@ -19,7 +19,9 @@ import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
-import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icon';
+
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+
 import Image from '~/components/Image';
 import Search from '../Search';
 
@@ -28,15 +30,12 @@ const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
-        title: 'English',
+
+        title: 'Tiếng Việt',
+
         children: {
             title: 'Language',
             data: [
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                },
                 {
                     type: 'language',
                     code: 'vi',
@@ -134,7 +133,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6AInTXAN1lA-tpOYcAJUrYYUJcU4V1m4UA&s"
                                 alt="Nguyen Van A"
                             />
                         ) : (

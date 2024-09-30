@@ -1,12 +1,13 @@
-import Button from '~/components/Button';
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import Button from '~/components/Button';
+
 import styles from './Menu.module.scss';
-import MenuItem from '~/components/Popper/Menu/MenuItem';
 
 const cx = classNames.bind(styles);
 
-function MENU_ITEMS(data, onClick) {
+function MenuItem({ data, onClick }) {
     const classes = cx('menu-item', {
         separate: data.separate,
     });
@@ -19,7 +20,7 @@ function MENU_ITEMS(data, onClick) {
 
 MenuItem.propTypes = {
     data: PropTypes.object.isRequired,
-    onClick: PropTypes.object.func,
+    onClick: PropTypes.func,
 };
 
-export default MENU_ITEMS;
+export default MenuItem;

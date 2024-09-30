@@ -1,14 +1,17 @@
-import classNames from 'classnames/bind';
+
+import { useEffect, useState, useRef } from 'react';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
+import classNames from 'classnames/bind';
+
+import * as searchServices from '~/services/searchService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useDebounce from '~/hooks/useDebounce';
+import { SearchIcon } from '~/components/Icons';
+import { useDebounce } from '~/hooks';
 import styles from './Search.module.scss';
-import { useEffect, useRef, useState } from 'react';
-import * as searchServices from '~/services/searchService';
-import { SearchIcon } from '~/components/Icon';
+
 
 const cx = classNames.bind(styles);
 
@@ -33,7 +36,9 @@ function Search() {
 
             const result = await searchServices.search(debouncedValue);
 
-            setSearchResult(result);
+
+            setSearchResult(result || []);
+
             setLoading(false);
         };
 
@@ -92,9 +97,11 @@ function Search() {
                     )}
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
+
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                         <SearchIcon />
                     </button>
+
                 </div>
             </HeadlessTippy>
         </div>

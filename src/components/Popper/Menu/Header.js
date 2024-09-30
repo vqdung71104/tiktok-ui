@@ -13,6 +13,7 @@ function Header({ title, onBack }) {
                 <FontAwesomeIcon icon={faChevronCircleLeft} />
             </button>
             <h1 className={cx('header-title')}>{title}</h1>
+
         </header>
     );
 }
